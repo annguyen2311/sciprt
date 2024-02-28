@@ -1,1 +1,90 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AltsegoD/script/master/loader.lua"))()
+-- Tạo một nút để bật/tắt chế độ đồ hoạ thấp
+local button = Instance.new("TextButton")
+button.Parent = game.StarterGui
+button.Text = "Low Graphics Mode"
+button.Size = UDim2.new(0, 100, 0, 50)
+button.Position = UDim2.new(0, 10, 0, 10)
+
+-- Tạo một biến để lưu trạng thái của chế độ đồ hoạ thấp
+local lowGraphics = false
+
+-- Tạo một hàm để giảm đồ hoạ khi bật chế độ đồ hoạ thấp
+local function lowerGraphics()
+    -- Thay đổi công nghệ chiếu sáng sang ShadowMap
+    game.Lighting.Technology = Enum.Technology.ShadowMap
+    -- Tắt bóng toàn cục
+    game.Lighting.GlobalShadows = false
+    -- Tắt ánh sáng mặt trời
+    game.Lighting.SunRays.Enabled = false
+    -- Tắt mây
+    game.Lighting.Clouds.Enabled = false
+    -- Tăng sương mù để giảm khoảng cách hiển thị
+    game.Lighting.FogEnd = 100
+    -- Thay đổi chất liệu của các vật thể sang SmoothPlastic hoặc Metal
+    for _, part in pairs(game.Workspace:GetDescendants()) do
+        if part:IsA("BasePart") then
+            if part.Material == Enum.Material.Glass then
+                part.Material = Enum.Material.SmoothPlastic
+            elseif part.Material == Enum.Material.Neon then
+                part.Material = Enum.Material.Metal
+            end
+        end
+    end
+end
+
+-- Tạo một hàm để khôi phục đồ hoạ khi tắt chế độ đồ hoạ thấp
+local function restoreGraphics()
+    -- Thay đổi công nghệ chiếu sáng về mặc định
+    game.Lighting.Technology = Enum.Technology.Compatibility
+    -- Bật bóng toàn cục
+    game.Lighting.GlobalShadows = true
+    -- Bật ánh sáng mặt trời
+    game.Lighting.SunRays.Enabled = true
+    -- Bật mây
+    game.Lighting.Clouds.Enabled = true
+    -- Giảm sương mù về mặc định
+    game.Lighting.FogEnd = 10000
+    -- Khôi phục chất liệu của các vật thể
+    for _, part in pairs(game.Workspace:GetDescendants()) do
+        if part:IsA("BasePart") then
+            if part.Material == Enum.Material.SmoothPlastic then
+                part.Material = Enum.Material.Glass
+            elseif part.Material == Enum.Material.Metal then
+                part.Material = Enum.Material.Neon
+            end
+        end
+    end
+end
+
+-- Tạo một hàm để xoá tất cả map
+local function deleteAllMap()
+    -- Duyệt qua tất cả các đối tượng con của Workspace
+    for _, object in pairs(game.Workspace:GetChildren()) do
+        -- Nếu đối tượng không phải là người chơi hoặc camera
+        if not object:IsA("Player") and not object:IsA("Camera") then
+            -- Xoá đối tượng
+            object:Destroy()
+        end
+    end
+end
+
+-- Tạo một sự kiện khi nút được nhấn
+button.MouseButton1Click:Connect(function()
+    -- Đảo ngược trạng thái của chế độ đồ hoạ thấp
+    lowGraphics = not lowGraphics
+    -- Nếu chế độ đồ hoạ thấp được bật
+    if lowGraphics then
+        -- Thay đổi văn bản của nút
+        button.Text = "Normal Graphics Mode"
+        -- Gọi hàm giảm đồ hoạ
+        lowerGraphics()
+        -- Gọi hàm xoá tất cả map
+        deleteAllMap()
+    -- Nếu chế độ đồ hoạ thấp được tắt
+    else
+        -- Thay đổi văn bản của nút
+        button.Text = "Low Graphics Mode"
+        -- Gọi hàm khôi phục đồ hoạ
+        restoreGraphics()
+    end
+end)
