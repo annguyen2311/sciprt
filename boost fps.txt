@@ -4,7 +4,7 @@ _G.Settings = {
         ["Ignore Others"] = true-- Ignore other Characters
     },
     Meshes = {
-        Destroy = false, -- Destroy Meshes
+        Destroy = true, -- Destroy Meshes
         LowDetail = true -- Low detail meshes (NOT SURE IT DOES ANYTHING)
     },
     Images = {
