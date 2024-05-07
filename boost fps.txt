@@ -10,7 +10,7 @@ _G.Settings = {
     Images = {
         Invisible = true, -- Invisible Images
         LowDetail = false, -- Low detail images (NOT SURE IT DOES ANYTHING)
-        Destroy = false, -- Destroy Images
+        Destroy = true, -- Destroy Images
     },
     ["No Particles"] = true, -- Disables all ParticleEmitter, Trail, Smoke, Fire and Sparkles
     ["No Camera Effects"] = true, -- Disables all PostEffect's (Camera/Lighting Effects)
