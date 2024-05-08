@@ -9,7 +9,7 @@ _G.Settings = {
     },
     Images = {
         Invisible = true, -- Invisible Images
-        LowDetail = false, -- Low detail images (NOT SURE IT DOES ANYTHING)
+        LowDetail = true, -- Low detail images (NOT SURE IT DOES ANYTHING)
         Destroy = true, -- Destroy Images
     },
     ["No Particles"] = true, -- Disables all ParticleEmitter, Trail, Smoke, Fire and Sparkles
