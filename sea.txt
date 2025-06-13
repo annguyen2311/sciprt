@@ -3,89 +3,57 @@ script_key="jvapajecfLjUcVyhfPbUWGKapoaerMtU";
 getgenv().Config = {
     ["Time To Sell"] = 35, -- Seconds
     ["Seed"] = {
-        ["Strawberry"] = 44,
-        ["Corn"] = 44,
-        ["Coconut"] = 44,
-        ["Apple"] = 44,
-        ["Watermelon"] = 44,
-        ["Mushroom"] = 44,
-        ["Pumpkin"] = 44,
-        ["Pepper"] = 44,
         ["Cacao"] = 44,
-        ["Banana"] = 44,
-        ["Dragon Fruit"] = 44,
+        ["Pumpkin"] = 44,
         ["Mango"] = 44,
+        ["Orange Tulip"] = 44,
+        ["Watermelon"] = 44,
+        ["Dragon Fruit"] = 44,
         ["Cactus"] = 44,
-        ["Beanstalk"] = 44,
-        ["Grape"] = 44,
+        ["Daffodil"] = 44,
+        ["Pepper"] = 44,
         ["Bamboo"] = 44
     },
-    ["FPS"] = 3,
+    ["FPS"] = 60,
     ["Buy Egg"] = true,
     ["Egg"] = {
         ["Common Egg"] = false,
-        ["Uncommon Egg"] = false,
         ["Rare Egg"] = false,
-        ["Mythical Egg"] = true,
+        ["Mythical Egg"] = false,
         ["Legendary Egg"] = false,
         ["Bug Egg"] = true
     },
     ["ItemBlood"] = {
         ["Blood Banana"] = false,
         ["Blood Owl"] = false,
-        ["Night Seed Pack"] = true,
+        ["Night Seed Pack"] = false,
         ["Moon Melon"] = false,
         ["Mysterious Crate"] = false,
         ["Blood Kiwi"] = false,
-        ["Night Egg"] = true,
+        ["Night Egg"] = false,
         ["Star Caller"] = false,
         ["Blood Hedgehog"] = false
     },
-    ["Item Twilight"] = {
-        ["Moon Mango"] = false,
-        ["Celestiberry"] = false,
-        ["Twilight Crate"] = false,
-        ["Night Seed Pack"] = true,
-        ["Night Egg"] = true,
-        ["Moon Cat"] = false,
-        ["Star Caller"] = false
+    ["Item Special Buy"] = {
+        ["Candy Blossom"] = true,
+        ["Chocolate Sprinkler"] = false,
+        ["Candy Sunflower"] = false,
+        ["Easter Egg"] = false,
+        ["Red Lollipop"] = false,
+        ["Chocolate Carrot"] = false
     },
+    ["Hop Old Server"] = true,
+    ["Delay Hop"] = 5,
     ["Sprinkler"] = {
-        ["Basic Sprinkler"] = true,
-        ["Advanced Sprinkler"] = true,
-        ["Master Sprinkler"] = true,
-        ["Godly Sprinkler"] = true
+        ["Basic Sprinkler"] = false,
+        ["Advanced Sprinkler"] = false,
+        ["Master Sprinkler"] = false,
+        ["Godly Sprinkler"] = false
     },
-    ["Plant Candy"] = false,
-    ["PetNeedSend"] = {"Dragonfly", "Night Owl", "Raccoon", "Red Fox"},
-    ["Destroy Mode"] = {
-        ["Auto Destroy when have money"] = 1000000, -- its will destroy all trees select when money >= select
-        ["Trees"] = {"Strawberry", "Blueberry", "Corn", "Tomato", "Orange Tulip"}
-    },
-    ["Url"] = "", -- Webhook 
+    ["PetNeedSend"] = "Dragonfly",
+    ["Url"] = "", -- URL WEBHOOK
     ["Boost FPS"] = true,
-    ["Black Screen"] = true,
-    ["Note"] = "Skibidi Hub",
-    ["Pet Mode"] = {
-        ["Sell Pet"] = true,
-        ["Equip Pet"] = true,
-        ["Name Pet Equip"] = {
-            ["Night Owl"] = true,
-            ["Raccoon"] = true,
-            ["Red Fox"] = true,
-            ["Echo Frog"] = true,
-            ["Red Giant Ant"] = true,
-            ["Praying Mantis"] = true
-        },
-        ["Rarity"] = { -- Rarity Sell Pet
-            ["Common"] = true,
-            ["Uncommon"] = true,
-            ["Rare"] = true,
-            ["Legendary"] = false,
-            ["Divine"] = false,
-            ["Mythical"] = false
-        }
-    }
+    ["Black Screen"] = false
 }
 repeat
     wait()
